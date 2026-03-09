@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+
 @Slf4j
 @RestController
 @RequestMapping("/api/notifications")
@@ -20,6 +22,7 @@ public class NotificationController {
         log.info("Received notification request: {}", request);
 
         switch (request.getType()) {
+            // Существующие типы
             case "FILE_DELETED":
                 notificationService.notifyFileDeleted(
                         request.getUserEmail(),
@@ -44,6 +47,40 @@ public class NotificationController {
                         request.getUserEmail(),
                         request.getUserName(),
                         request.getUserId()
+                );
+                break;
+
+            // ✅ НОВЫЕ ТИПЫ ДЛЯ ТАРИФОВ
+            case "TARIFF_PURCHASED":
+                notificationService.notifyTariffPurchased(
+                        request.getUserEmail(),
+                        request.getUserName(),
+                        request.getTariffName(),
+                        LocalDateTime.parse(request.getEndDate())
+                );
+                break;
+
+            case "TARIFF_ENDING_SOON":
+                notificationService.notifyTariffEndingSoon(
+                        request.getUserEmail(),
+                        request.getUserName(),
+                        request.getDaysLeft(),
+                        LocalDateTime.parse(request.getEndDate())
+                );
+                break;
+
+            case "TARIFF_EXPIRED":
+                notificationService.notifyTariffExpired(
+                        request.getUserEmail(),
+                        request.getUserName()
+                );
+                break;
+
+            case "TARIFF_RENEWED":
+                notificationService.notifyTariffRenewed(
+                        request.getUserEmail(),
+                        request.getUserName(),
+                        LocalDateTime.parse(request.getEndDate())
                 );
                 break;
 

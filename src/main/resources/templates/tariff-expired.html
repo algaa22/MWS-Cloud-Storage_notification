@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Тариф истек</title>
+</head>
+<body>
+<h2 th:text="'Здравствуйте, ' + ${userName} + '!'">Здравствуйте!</h2>
+
+<p>Срок действия вашего тарифа <strong>истек</strong>.</p>
+<p>Некоторые функции могут быть недоступны.</p>
+
+<a href="http://localhost:5173/tariffs" style="background: #3b82f6; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px;">
+    Выбрать новый тариф
+</a>
+</body>
+</html>

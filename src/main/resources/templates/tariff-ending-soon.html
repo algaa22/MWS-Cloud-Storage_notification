@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Тариф заканчивается</title>
+</head>
+<body>
+    <h2 th:text="'Здравствуйте, ' + ${userName} + '!'">Здравствуйте!</h2>
+
+    <p th:if="${daysLeft == 7}">
+        Ваш тариф заканчивается через <strong>7 дней</strong>.
+    </p>
+    <p th:if="${daysLeft == 3}">
+        Ваш тариф заканчивается через <strong>3 дня</strong>.
+    </p>
+    <p th:if="${daysLeft == 1}">
+        <strong>Сегодня последний день</strong> действия вашего тарифа!
+    </p>
+
+    <p>Чтобы продолжить пользоваться всеми возможностями, продлите подписку.</p>
+
+    <a href="http://localhost:5173/tariffs" style="background: #3b82f6; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px;">
+        Продлить тариф
+    </a>
+</body>
+</html>
