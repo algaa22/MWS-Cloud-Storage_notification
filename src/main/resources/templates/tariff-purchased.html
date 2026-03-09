@@ -107,23 +107,22 @@
         <div class="tariff-box">
             <div class="tariff-name" th:text="${tariffName}">ПРЕМИУМ</div>
             <div class="tariff-date" th:text="'Действует до: ' + ${#temporals.format(endDate, 'dd.MM.yyyy')}">
-                Действует до: 31.12.2025
-            </div>
+]            </div>
         </div>
 
         <p style="color: #666;"><strong>Что входит в тариф:</strong></p>
 
         <ul class="benefits">
             <li th:if="${tariffName == 'BASIC'}">📁 10 GB хранилища</li>
-            <li th:if="${tariffName == 'BASIC'}">👥 До 5 пользователей</li>
+            <li th:if="${tariffName == 'BASIC'}">👥 До 3 пользователей</li>
             <li th:if="${tariffName == 'BASIC'}">🔄 Автопродление</li>
 
             <li th:if="${tariffName == 'WORK'}">📁 50 GB хранилища</li>
-            <li th:if="${tariffName == 'WORK'}">👥 До 20 пользователей</li>
+            <li th:if="${tariffName == 'WORK'}">👥 До 10 пользователей</li>
             <li th:if="${tariffName == 'WORK'}">⭐ Приоритетная поддержка</li>
 
             <li th:if="${tariffName == 'PREMIUM'}">📁 100 GB хранилища</li>
-            <li th:if="${tariffName == 'PREMIUM'}">👥 Неограниченно пользователей</li>
+            <li th:if="${tariffName == 'PREMIUM'}">👥 До 30 пользователей</li>
             <li th:if="${tariffName == 'PREMIUM'}">💎 VIP поддержка 24/7</li>
         </ul>
 
